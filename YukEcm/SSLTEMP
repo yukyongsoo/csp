@@ -1,0 +1,6 @@
+"C:\Program Files\Java\jdk1.6.0_45\jre\bin\keytool" -genkeypair -alias serverpair -keyalg RSA -keysize 1024 -dname "CN=server,O=M-PC" -keypass serverKeyPass -keystore D:\server-keystore.jks -storepass serverStorePass
+
+"C:\Program Files\Java\jdk1.6.0_45\jre\bin\keytool" -exportcert -alias serverpair -file D:\server.cer -keystore D:\server-keystore.jks -storepass serverStorePass
+
+"C:\Program Files\Java\jdk1.6.0_45\jre\bin\keytool" -importcert -keystore D:\client-truststore.jks -alias server-public-key -file D:\server.cer -storepass clientStorePass -noprompt
+

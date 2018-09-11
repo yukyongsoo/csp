@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XeServer>
+    <license key = "nebNwiT+bj5WVyFM4YczrM+YSpQGO1UnlqYEB2dsEJt/xRE3c5yMO996iYWkUeBWtd1OMv7TlmhxYtGi+WPo0UcN7z2jqdmt" />
+	
+	<Network apNum="1" type="nio" useInet="false" port="4400" tcpnodelay="false" backlog ="5000" bufferSize="8192"
+		TIMEOUT="999999999" maxActive="10" reuseaddr="true" clientPoolSize="1"/>
+	
+	<!-- <serverSSL keyfile="config/server-keystore.jks" storepassword="serverStorePass" keypassword="serverKeyPass"/>
+	<clientSSL trustfile="config/client-truststore.jks" trustpassword="clientStorePass"/> -->
+	
+	<DB driver="YukEcm" url="mongodb://localhost:27017" user="test"
+	pawd="/QIbit9C9ZhQQH99fzy2DQ==" encrypt="true" maxActive="20" CURSOR="Mongo" VALIDQUERY="test" />
+
+	<!-- <DB driver="oracle.jdbc.driver.OracleDriver" url="jdbc:oracle:thin:@localhost:1521:xe" user="yukecm"
+	pawd="ghAi/dL5fzvO0yDARZkWRQ==" encrypt="true" maxActive="1" CURSOR="Oracle" VALIDQUERY="select 1 from dual"/> -->
+	
+	<InMem use="true" type="Cluster"/>
+	<file TempDir="D:/asdf" workDir="D:/Save" />
+
+	<acl provider="" />
+	<user provider="" />
+	<secure provider="" />
+	<ace provider="" />
+	<group provider="" />
+</XeServer>

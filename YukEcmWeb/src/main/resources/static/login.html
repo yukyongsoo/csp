@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+<!-- <script src="vue.min.js"></script> -->
+<script src="js/vue-debug.js"></script>
+<link rel="stylesheet" href="css/vue-material.min.css">
+<link rel="stylesheet" href="css/common.css">
+<script src="js/es6-promise.auto.min.js"></script>
+<script src="js/axios.min.js"></script>
+<script src="js/sha256.js"></script>
+<title>Yuk Ecm Web</title>
+</head>
+
+<body>
+	<div id='login' class='login-viewport' >
+		<md-card md-with-hover>
+			<md-card-media>	
+				<img src="assets/icon-ecm.png" alt="Login Alt Image">		
+  			</md-card-media>
+  			<md-card-header>
+    			<div class="md-title">Welcome To YukEcm</div>
+ 			</md-card-header>
+			<form name="loginform" acton="login" method='post'>
+				<md-card-content>
+ 					<md-input-container>
+    					<label for="address">ServerAddress</label>
+    					<md-input type="text" id="address" name="address" required></md-input>
+ 					</md-input-container>
+					<md-input-container>
+    					<label for="username">Username</label>
+    					<md-input type="text" id="username" name="username" required></md-input>
+ 					</md-input-container>
+ 					 <md-input-container>
+    					<label for="password">Password</label>
+    					<md-input type="password" id="password" name="password" required></md-input>
+ 					</md-input-container>
+ 					<md-button  type="submit" class="md-raised md-primary">Login</md-button>
+ 					<div v-if="getPath() === '?error'" class="red">    
+                    	Login Fail. check Your id or PassWord. Maybe Not Connected To Server. Detail Message in Server Log.
+                	</div>
+				</md-card-content>
+			</form>
+		</md-card>
+	</div>
+	<script src="js/vue-material.min.js"></script>
+	<script src="js/login.js"></script>
+</body>
+</html>

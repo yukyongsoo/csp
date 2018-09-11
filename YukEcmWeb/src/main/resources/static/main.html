@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport">
+<!-- <script src="vue.min.js"></script> -->
+<script src="js/vue-debug.js"></script>
+<script src="js/vue-router.min.js"></script>
+<script src="js/vue-httpLoader.js"></script>
+<link rel="stylesheet" href="css/vue-material.min.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<script src="js/es6-promise.auto.min.js"></script>
+<script src="js/axios.min.js"></script>
+<script src="js/model.js"></script>
+<script src="js/vue-jstree.js"></script>
+<script src="js/vueex.js"></script>
+<title>Yuk Ecm Web</title>
+</head>
+
+<body>
+	<div id='app'>
+		<!--  mainframe -->
+		<md-whiteframe md-elevation="8"> 
+			<md-toolbar>
+				<md-button class="md-icon-button" @click="$refs.menu.toggle()"><md-icon md-src="assets/icon-menu.png"></md-icon></md-button>
+				 <h2 class="md-title" @click="title()">Yuk Ecm Web</h2>
+			</md-toolbar> 
+		</md-whiteframe> 
+	
+		<router-view class="routerBody"></router-view>
+	
+		<!-- speed dial -->
+		<speedmenu-component></speedmenu-component>
+		<!-- menu -->
+		<md-sidenav class="md-left" ref="menu">
+			<menu-component @close-menu="closeMenu"></menu-component>
+		</md-sidenav>
+		
+		 <md-dialog-alert
+              :md-content="content"
+              :md-ok-text="ok"
+              ref="alert">
+        </md-dialog-alert>
+	</div>
+	<script src="js/vue-material.min.js"></script> 
+	<script src="main.js"></script>
+	<script src="js/dic.js"></script>
+</body>
+</html>

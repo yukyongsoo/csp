@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>YukEcmWeb</groupId>
+	<artifactId>YukEcmWeb</artifactId>
+	<version>1.0-Pre</version>
+	<packaging>war</packaging>
+
+	<name>YukEcmWeb</name>
+	<description></description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+	
+		<version>1.5.7.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.6</java.version>
+		<jackson.version>2.6.7</jackson.version>
+		<tomcat.version>7.0.67</tomcat.version>
+		<opencmis-version>1.1.0</opencmis-version>
+	</properties>
+
+	<dependencies>
+        <dependency>
+            <groupId>yuk.ecm</groupId>
+            <artifactId>commonio</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-io-2.5.jar</systemPath>
+        </dependency>
+        
+        <dependency>
+            <groupId>yuk.ecm</groupId>
+            <artifactId>gson</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/gson-2.8.1.jar</systemPath>
+        </dependency>
+        
+        <dependency>
+            <groupId>yuk.ecm</groupId>
+            <artifactId>client</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/httpclient-4.5.3.jar</systemPath>
+        </dependency>
+        
+        <dependency>
+            <groupId>yuk.ecm</groupId>
+            <artifactId>coreclient</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/httpcore-4.4.6.jar</systemPath>
+        </dependency>
+        
+        <dependency>
+            <groupId>yuk.ecm</groupId>
+            <artifactId>mimeclient</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/httpmime-4.5.3.jar</systemPath>
+        </dependency>
+        
+        <dependency>
+            <groupId>yuk.ecm</groupId>
+            <artifactId>jasypt</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jasypt-1.9.2.jar</systemPath>
+        </dependency>
+       
+       <dependency>
+            <groupId>yuk.ecm</groupId>
+            <artifactId>jclover</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jcl-over-slf4j-1.7.25.jar</systemPath>
+        </dependency>
+        
+        <dependency>
+            <groupId>yuk.ecm</groupId>
+            <artifactId>slf4j</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/slf4j-api-1.7.7.jar</systemPath>
+        </dependency>
+        <!-- cmis -->
+   		 <dependency>
+ 		 	<groupId>org.apache.chemistry.opencmis</groupId>
+    		<artifactId>chemistry-opencmis-server-async</artifactId>
+    		<version>${opencmis-version}</version>
+   		</dependency>	
+  		<!-- end of cmis -->
+  		
+		<dependency>
+        	<groupId>org.apache.tomcat</groupId>
+        	<artifactId>tomcat-juli</artifactId>
+        	<version>${tomcat.version}</version>
+   		</dependency>
+   		
+    	<dependency>
+        	<groupId>org.springframework.boot</groupId>
+       		<artifactId>spring-boot-devtools</artifactId>
+        	<optional>true</optional>
+   		</dependency>
+   		
+   		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+	
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+                <exclusion>
+                    <artifactId>jackson-databind</artifactId>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                </exclusion>
+            </exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+                	<execution>
+                    	<goals>
+                      	  <goal>repackage</goal>
+                    	</goals>
+               		</execution>
+            	</executions>
+				<configuration>
+    				<includeSystemScope>true</includeSystemScope>
+  				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-annotations</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-core</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.dataformat</groupId>
+				<artifactId>jackson-dataformat-csv</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.dataformat</groupId>
+				<artifactId>jackson-dataformat-xml</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.dataformat</groupId>
+				<artifactId>jackson-dataformat-yaml</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.datatype</groupId>
+				<artifactId>jackson-datatype-hibernate4</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.datatype</groupId>
+				<artifactId>jackson-datatype-hibernate5</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.datatype</groupId>
+				<artifactId>jackson-datatype-joda</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.datatype</groupId>
+				<artifactId>jackson-datatype-jsr310</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.jaxrs</groupId>
+				<artifactId>jackson-jaxrs-base</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.jaxrs</groupId>
+				<artifactId>jackson-jaxrs-json-provider</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.module</groupId>
+				<artifactId>jackson-module-parameter-names</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>

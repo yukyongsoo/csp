@@ -1,0 +1,32 @@
+g1. sch
+
+bug patch v1.5 -> version
+
+2.hint
+con user 1/4 connection is good;
+con user 1/8 db conn is good;
+
+3. careful List for injector work
+workinggroup;
+rule;
+repository;
+
+4. rework
+
+5. needed func
+upd folder.documnet adjust
+bind meta to doc,workgroup
+add inhertied to workgroup
+check migration. used flag. and logic
+
+6.bug
+parent set is not correct group
+think your upd state
+
+7. add func
+mig function need folder,workinggroup,storage type mig
+cluster start/stop
+node start/stop
+
+7-2. large change
+add mig pharse and add lifecycle is good
